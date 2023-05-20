@@ -9,13 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack(alignment: .leading)
+        {
+            AsyncImage(url: URL(string: "https://hws.dev/img/bad.png"))
+            { phase in
+                phase
+                    .resizable()
+                    .scaledToFit()
+                
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: 200, height: 200)
         }
-        .padding()
     }
 }
 
